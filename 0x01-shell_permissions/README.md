@@ -1,1 +1,1 @@
-John_Doe
+mirror permissions
