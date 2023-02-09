@@ -1,1 +1,1 @@
-directories permissions
+directory permissions
