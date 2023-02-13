@@ -1,1 +1,1 @@
-hello world
+prints confused smiley
