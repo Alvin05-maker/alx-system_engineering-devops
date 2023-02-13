@@ -1,1 +1,1 @@
-Delete javascript files
+Counting directories in the current directory
