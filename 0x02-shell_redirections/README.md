@@ -1,1 +1,1 @@
-Duplicate last line
+Delete javascript files
