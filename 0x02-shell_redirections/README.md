@@ -1,1 +1,1 @@
-10 newest lines display
+unique
