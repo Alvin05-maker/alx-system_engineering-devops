@@ -1,1 +1,1 @@
-Counting directories in the current directory
+10 newest lines display
