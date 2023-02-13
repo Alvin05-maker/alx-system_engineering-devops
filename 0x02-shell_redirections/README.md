@@ -1,1 +1,1 @@
-Find the word with the pattern "root"
+Counting the lines with the pattern "bin" in the file /etc/passwd
