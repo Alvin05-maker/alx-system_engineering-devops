@@ -14,7 +14,7 @@ This guide provides step-by-step instructions on how to securely transfer files 
      - **Username**: Your username for accessing the remote server.
      - **Password**: Your password for authenticating with the remote server.
 
-     Usage: sftp <Username>@<Hostname>
+     Usage: sftp [Username]@[Hostname].
            Enter the password when prompted.
 
 4. **Navigate to the Directory**:
