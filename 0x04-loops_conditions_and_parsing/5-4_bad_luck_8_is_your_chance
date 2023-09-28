@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script is displaying "bad luck" in 4th iteration, "good luck" in 8th and "Best School" in other loop iterations
+count=1
+maxcount=10
+while [ "$count" -le "$maxcount" ];do
+	if [ "$count" -eq 4 ];then
+		echo "bad luck"
+	elif [ "$count" -eq 8 ];then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+	((count++))
+done
