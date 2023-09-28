@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script is displaying "Best school" 10 times
+counter=1
+maxCount=10
+until [ "$counter" -gt "$maxCount" ];do
+	echo "Best School"
+	((counter++))
+done
