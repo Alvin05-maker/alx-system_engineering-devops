@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# This script display "Best School" 10 times bt print hi in the 9th iteration
+count=0
+maxcount=10
+while [ "$count" -lt "$maxcount" ];do
+	if [ "$count" -eq 8 ];then
+		echo "Best School"
+		echo "Hi"
+	else
+		echo "Best School"
+	fi
+	((count++))
+done
