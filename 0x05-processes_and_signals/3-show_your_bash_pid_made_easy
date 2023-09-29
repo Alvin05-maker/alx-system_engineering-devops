@@ -10,4 +10,3 @@ for pid in $script_pid;do
 	echo "$parent_pid bash"
 	echo "$pid bash"
 done
-
