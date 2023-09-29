@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script is displaying the pid of bash processes
+# Shellcheck disable=SC2009
+ps aux --forest | grep "bash"
