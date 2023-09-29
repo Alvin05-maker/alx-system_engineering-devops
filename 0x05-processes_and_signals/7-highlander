@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This script is displaying a message indefinitely and ignores SIGTERM signal
+
+#Command to be executed when a SIGTERM signal is received
+ignore()
+{
+	echo "I am invincible!!!"
+}
+
+#Trap the SIGTERM signal and call the ignore function
+trap ignore SIGTERM
+for ((i = 0; i >= 0; i++));do
+	echo "To infinity and beyond"
+	sleep 2
+done
