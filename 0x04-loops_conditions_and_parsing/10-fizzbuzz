@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script is displaying numbers from 1 to 100 but "Fizz" , "Buzz" and "FizzBuzz" for mutiples of 3,5 and both
+maxNum=100
+for ((i = 1; i <= maxNum; i++));do
+	if ((i % 3 == 0 && i % 5 == 0));then
+                echo "FizzBuzz"
+	elif ((i % 3 == 0));then
+		echo "Fizz"
+	elif ((i % 5 == 0));then
+		echo "Buzz"
+	else
+		echo "$i"
+	fi
+done
