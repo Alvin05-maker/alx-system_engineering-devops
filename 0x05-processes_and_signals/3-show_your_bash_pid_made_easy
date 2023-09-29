@@ -4,7 +4,7 @@
 script_pid=$$
 
 # Get the parent pid of the script
-parent_pid=$(ps -o ppid= -p $script_pid)
+parent_pid=$PPID
 # Print the PID of the script and Bash processes spawned by the script
 for pid in $script_pid;do
 	echo "$parent_pid bash"
