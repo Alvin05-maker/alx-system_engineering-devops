@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script kills /forcefully terminates a process
+
+# Find the PID of the process to kill
+pid=$(pgrep -f 7-highlander)
+if [ -n "$pid" ];then
+	kill -9 "$pid"
+fi
