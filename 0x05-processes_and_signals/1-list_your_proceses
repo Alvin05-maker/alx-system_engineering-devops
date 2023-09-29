@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This script displays the processes in user-oriented format and in order of process heirarchy
+ps aux --forest
