@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# This script is displaying the process id of processes alongside their  names
+# Get process id of script produced by bash instance
+script_pid=$$
+
+# Get the parent pid of the script
+parent_pid=$(ps -o ppid= -p $script_pid)
+# Print the PID of the script and Bash processes spawned by the script
+for pid in $script_pid;do
+	echo "$parent_pid bash"
+	echo "$pid bash"
+done
+
