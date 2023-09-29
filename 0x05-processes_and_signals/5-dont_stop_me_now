@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script is killig the infinite loop process that I created earlier
+
+# Get the Process ID of the process to be killed
+pid=$(pgrep -f 4-to_infinity_and_beyond)
+if [ -n "$pid" ];then
+	kill "$pid"
+fi
