@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#This script list the contents of the direct and removes a a string from their filenames
+filenames=$(ls | cut -d'-' -f2)
+echo "$filenames"
