@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# This script creates a file that stores its own PID and displays some messages when SIGTERM,SIGQUIT ANS SIGINT signals are received
+
+# get the PID and store in the file /var/run/myscript.pid
+echo $$ > /var/run/myscript.pid
+
+# When receiving a SIGTERM signal
+terminate()
+{
+	echo "I hate the kill command"
+	quit
+}
+
+# When receiving a SIGINT signal
+interrupt()
+{
+	echo "Y U no love me?!"
+}
+
+# When receiving SIGQUIT signal
+quit()
+{
+	rm -f /var/run/myscript.pid
+	exit 0
+}
+
+# Trap the different signals
+trap terminate SIGTERM
+trap interrupt SIGINT
+trap quit SIGQUIT
+
+#Run the infinite loop
+for ((i = 1; i > 0; i++));do
+	echo "To infinity and beyond"
+	sleep 2
+done
