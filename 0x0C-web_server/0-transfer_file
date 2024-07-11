@@ -13,4 +13,4 @@ username=$3
 ssh_key=$4
 
 # Use scp to transfer the file to the user's home directory on the server
-scp 
+scp -o StrictHostKeyChecking=no -i "$ssh_key" "$username"@"$server_ip":~/ 
