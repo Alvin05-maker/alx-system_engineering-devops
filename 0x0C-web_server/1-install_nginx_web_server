@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# install nginx web server
+sudo apt-get update && sudo apt-get install nginx
+
+# Start nginx service
+sudo service nginx start
+
+# Change ownership of the file /var/www/html directory
+sudo chown -R $USER:$USER /var/www/html
+
+# Get the appropriate permissions
+sudo chmod -R 755 /var/www/html
+
+# create a file index.html with the string 'Hello World!'
+touch index.html
+echo "Hello World!" > index.html
+
+# Restart nginx to apply the changes
+sudo service nginx restart
