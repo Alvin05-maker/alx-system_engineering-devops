@@ -13,8 +13,8 @@ sudo chown -R $USER:$USER /var/www/html
 sudo chmod -R 755 /var/www/html
 
 # create a file index.html with the string 'Hello World!'
-touch index.html
-echo "Hello World!" > index.html
+touch /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
 
 # Restart nginx to apply the changes
 sudo service nginx restart
