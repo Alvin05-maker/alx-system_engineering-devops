@@ -7,7 +7,7 @@ sudo apt-get update && sudo apt-get install nginx
 sudo service nginx start
 
 # Change ownership of the file /var/www/html directory
-sudo chown -R $USER:$USER /var/www/html
+sudo chown -R "$USER":"$USER" /var/www/html
 
 # Get the appropriate permissions
 sudo chmod -R 755 /var/www/html
