@@ -1,1 +1,1 @@
-Task 0. Where am I?
+What happens when you type google.com and press enter
