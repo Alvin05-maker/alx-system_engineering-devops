@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#  Bash script for running command as another user passed as the first argument
+
+sudo -u "$1" whoami
