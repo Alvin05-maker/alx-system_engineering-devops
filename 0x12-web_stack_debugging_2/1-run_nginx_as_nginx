@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# configure nginx to run as non-root user nginx
+
+# grant permissions to file
+sudo chown -R nginx:nginx /var/log/nginx
+sudo chown -R nginx:nginx /var/lib/nginx
+
+# edit config file, set user to nginx
+sed -i 's/user www-data;/user nginx;/g' /etc/nginx/nginx.conf
+sed -i 's/80/8080/g' /etc/nginx/sites-available/default
+
+#check config files
+sudo nginx -t 
+
+# restart nginx to apply the changes
+sudo service nginx stop
+sudo -u nginx service nginx start
