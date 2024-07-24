@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
+#Ascript to bloock all incoming traffic except ssh,http and https
+
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 
-sudo ufw default allow ssh
-sudo ufw default allow https
-sudo ufw default allow htto
+sudo ufw default allow 22
+sudo ufw default allow 443
+sudo ufw default allow 80
 
 sudo ufw enable
