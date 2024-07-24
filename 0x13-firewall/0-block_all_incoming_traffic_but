@@ -1,0 +1,8 @@
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+sudo ufw default allow ssh
+sudo ufw default allow https
+sudo ufw default allow htto
+
+sudo ufw enable
