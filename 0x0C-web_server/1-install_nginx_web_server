@@ -2,14 +2,20 @@
 #A script to install nginx web server
 
 # install nginx web server
-sudo apt-get update && sudo apt-get install nginx
+sudo apt-get update
+sudo apt-get -y install nginx
 
 # Start nginx service
 sudo service nginx start
 
-# create a file index.html with the string 'Hello World!'
-sudo touch /var/www/html/index.html
-echo "Hello World!" | sudo tee  /var/www/html/index.html
+# Change the ownership of the /var/www/html
+sudo chown -R $USER:$USER /var/www/html
+
+# Update the html doc
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+
+# Check the configuration
+sudo nginx -t
 
 # Restart nginx to apply the changes
 sudo service nginx restart
