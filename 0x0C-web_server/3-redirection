@@ -1,24 +1,20 @@
 #!/usr/bin/env bash
-# A script for installing nginx web server and update it with redirection
+# install and configure nginx on web server
 
-# install nginx web server
+redirect_rule="\tlocation /redirect_me {\n\t\treturn 301 http://new-destination.com;\n\t}"
+
 sudo apt-get update
-apt-get -y install nginx
+sudo apt-get -y install nginx # install nginx
 
-# Start nginx service 
-sudo service nginx start
-
-# Change the ownership of /var/www/html
+# change file owner
 sudo chown -R "$USER":"$USER" /var/www/html
 
-# Update the html doc
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
+# update html doc
+echo "Hello World!"  > /var/www/html/index.nginx-debian.html
+# shellcheck disable=SC1003
+sudo sed -i -e '/^server {/,/^}/{/^}/i\'"$redirect_rule" -e '}' /etc/nginx/sites-available/default
 
-# Update nginx configuration to add redirection
-sudo sed -i '/^}$/i \ \n\trewrite ^/redirect_me$ https://www.youtube.com/watch?v=QH2-TGUlwu4;' /etc/nginx/sites-available/default
-
-# Test nginx configuration for syntax errors
+# check for configuration errors
 sudo nginx -t
-
-# Restart your nginx web server to apply the changes
+#restart nginx
 sudo service nginx reload
