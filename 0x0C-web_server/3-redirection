@@ -1,20 +1,27 @@
 #!/usr/bin/env bash
-# install and configure nginx on web server
+# Install and configure nginx on web server
 
-redirect_rule="\tlocation /redirect_me {\n\t\treturn 301 https://alvin05.hashnode.dev/what-happens-when-you-type-googlecom-in-your-browser-and-press-enter;\n\t}"
+redirect_rule=$(cat <<EOF
+    location /redirect_me {
+        return 301 https://alvin05.hashnode.dev/what-happens-when-you-type-googlecom-in-your-browser-and-press-enter;
+    }
+EOF
+)
 
 sudo apt-get update
-sudo apt-get -y install nginx # install nginx
+sudo apt-get -y install nginx # Install nginx
 
-# change file ownership
+# Change file ownership
 sudo chown -R "$USER":"$USER" /var/www/html
 
-# update html doc
-echo "Hello World!"  > /var/www/html/index.nginx-debian.html
-# shellcheck disable=SC1003
-sudo sed -i -e '/^server {/,/^}/{/^}/i\'"$redirect_rule" -e '}' /etc/nginx/sites-available/default
+# Update HTML doc
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
 
-# check for configuration errors
+# Shellcheck disable=SC1003
+sudo sed -i -e "/^server {/,/^}/{/^}/i\\$redirect_rule" /etc/nginx/sites-available/default
+
+# Check for configuration errors
 sudo nginx -t
-#restart nginx
+
+# Restart nginx
 sudo service nginx reload
