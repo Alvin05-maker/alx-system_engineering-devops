@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # install and configure nginx on web server
 
-redirect_rule="\tlocation /redirect_me {\n\t\treturn 301 http://new-destination.com;\n\t}"
+redirect_rule="\tlocation /redirect_me {\n\t\treturn 301 https://alvin05.hashnode.dev/what-happens-when-you-type-googlecom-in-your-browser-and-press-enter;\n\t}"
 
 sudo apt-get update
 sudo apt-get -y install nginx # install nginx
 
-# change file owner
+# change file ownership
 sudo chown -R "$USER":"$USER" /var/www/html
 
 # update html doc
