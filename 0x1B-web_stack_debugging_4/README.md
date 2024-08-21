@@ -69,7 +69,7 @@ Percentage of the requests served within a certain time (ms)
 ```
 
 ## Solution
-After intensive debugging, I found out my nginx server couldn't handle thousands of request at a time, when I look at error log file, it was obvious most of the request were failing on error `(24) Too many open files ...`. Fixing this required modifying the `/etc/default/nginx` configuration file, and increasing the `ULIMIT` variable from `15` to `9999`
+After intensive debugging, I found out my nginx server couldn't handle thousands of request at a time, when I look at error log file, it was obvious most of the request were failing on error `(24) Too many open files ...`. Fixing this required modifying the `/etc/default/nginx` configuration file, and increasing the `ULIMIT` variable from to `9999`
 
 
 ## Problem 02
