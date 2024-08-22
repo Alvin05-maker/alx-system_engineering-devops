@@ -1,0 +1,15 @@
+# Airbnb_clone application server - service file
+[Unit]
+Description=Airbnb clone API service
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/gunicorn -w 3 --bind 0.0.0.0:5003 --access-logfile /tmp/airbnb-access.log --error-logfile /tmp/airbnb-error.log web_dynamic.2-hbnb:app web_dynamic.2-hbnb:app
+Restart=always
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/AirBnB_clone_v4/
+
+[Install]
+WantedBy=multi-user.target
+
