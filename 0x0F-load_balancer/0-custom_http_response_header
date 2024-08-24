@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Configure a newe nginx web server and add custom http header
+
+config_file="/etc/nginx/nginx.conf"
+header="# server_tokens off;"
+new_header="add_header X-Served-By $(hostname);"
+
+# install a new nginx web server
+sudo apt-get update
+sudo apt-get -y install nginx
+
+# Change file ownership to current us
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chown -R "$USER":"$USER" /etc/nginx
+
+# Update the index file
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+
+# add custom http header
+if grep "$new_header" "$config_file":then
+	:
+else
+	sed -i "/$header/ a $new_header" "$config_file"
+
+fi
+
+# Check for configuration errors
+sudo nginx -t
+
+# Restart nginx
+sudo service nginx restart 
