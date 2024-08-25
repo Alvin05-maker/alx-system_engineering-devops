@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# install and configure HAProxy LB
+
+sudo apt-get -y update
+sudo apt-get -y install --no-install-recommends software-properties-common
+sudo add-apt -y -repository ppa:vbernat/haproxy-2.8
+sudo apt-get -y install haproxy=2.8.\*
+
+# change file ownwership to current user
+sudo chown -R "$USER":"$USER" /etc/haproxy/haproxy.cfg
+# update configurations
+
+if grep -q "frontend alx" /etc/haproxy/haproxy.cfg; then
+	:
+else
+	echo "
+frontend alx
+	bind *:80
+	default_backend alx_backend_servers
+
+backend alx_backend_servers
+	mode http
+	balance roundrobin
+	server web-01 107.23.95.20:80 check
+	server web-02 3.90.81.224:80 check
+"  >> /etc/haproxy/haproxy.cfg
+fi
+
+# restart haprox
+sudo service haproxy restart
